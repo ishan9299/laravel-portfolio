@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql:oraclelinux9
+    container_name: laravel-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - mysqldata:/var/lib/mysql:Z
+
+volumes:
+  mysqldata:
