@@ -49,7 +49,7 @@
                         you can contact me on Upwork.
                     </p>
 
-                    <p class="leading-relaxed text-(--main-fg-color-muted) max-w-2xl">
+                    <p class="leading-relaxed text-(--main-fg-color) max-w-2xl">
                         In my free time I like working on embedded systems and graphics programming. I am familiar with
                         OpenGL, Three.js and Unreal Engine.
                     </p>
