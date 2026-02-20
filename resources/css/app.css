@@ -13,6 +13,7 @@
 }
 
 
+/*
 :root {
     --main-bg-color: #FBD8B0;
     --main-bg-color-codeblk: #FBD8B0;
@@ -21,4 +22,14 @@
     --main-fg-color: #000000;
     --main-fg-color-header: #B52B40;
     --white: #F7F8F8;
+}
+*/
+
+:root {
+    /* Warm parchment — easy on the eyes, minimal */
+    --main-bg-color: #F0EBE3;
+    --main-fg-color: #1C1A18;
+    --main-fg-color-muted: #6B6560;
+    --main-border-color: #D5CEC6;
+    --main-border-hover: #B0A89E;
 }
