@@ -12,111 +12,90 @@
 
         <link rel="icon" href="./favicon.ico" type="image/x-icon">
     </head>
-    {{--
-        justify-center: `justify-content: center`
-        flex: display: `flex`
-        items-start: `align-items: flex-start`
-        h-screen: `height: 100vh`
-        m-0: `margin: 0`
-    --}}
-    <body class="flex justify-center items-center min-h-screen m-12 bg-(--main-bg-color) text-(--main-fg-color) font-mono">
-        <main class="w-4xl">
-            {{--
-                flex: `display: flex`
-                flex-col: `flex-direction: column`
-                items-center: `align-items: center`
-                justify-center: `justify-content: center`
-                p-0: `padding: 0px`
-                mt-120: `margin: 120px 0 0 0`
-            --}}
-            <div class="card flex flex-col items-center justify-center p-0 mt-0">
-                {{--
-                    block: `display: block`
-                    w-full: `width: 100%`
-                    h-full: `height: 100%`
-                --}}
-                {{--<canvas class="block w-full h-full" id="webgl-canvas"></canvas>--}}
+
+    <body class="flex justify-center items-center min-h-screen mx-auto px-6 py-16 bg-(--main-bg-color) text-(--main-fg-color) font-mono">
+        <main class="w-full max-w-3xl">
+
+            {{-- Intro / Hero --}}
+            <div class="mb-16">
                 <div class="content">
-                    {{--<h1 class="text-5xl mb-8">Ishan Agarwal</h1>--}}
 
-                    <div class="flex items-center gap-4 mb-8">
-                        <h1 class="text-5xl">Ishan Agarwal</h1>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 mb-6">
+                        <h1 class="text-4xl font-bold tracking-tight">Ishan Agarwal</h1>
 
-                        <div class="flex items-center gap-3 text-sm">
+                        <div class="flex items-center gap-4 text-sm text-(--main-fg-color-muted)">
                             <a href={{$socials->github}}
                                target="_blank"
-                               class="hover:underline opacity-80 hover:opacity-100 transition">
-                                GitHub
+                               class="font-semibold hover:text-(--main-fg-color) hover:underline transition">
+                               GitHub
                             </a>
 
                             <a href={{$socials->upwork}}
                                target="_blank"
-                               class="hover:underline opacity-80 hover:opacity-100 transition">
-                                Upwork
+                               class="font-semibold hover:text-(--main-fg-color) hover:underline transition">
+                               Upwork
                             </a>
 
                             <a href={{"mailto:$socials->email"}}
-                               class="hover:underline opacity-80 hover:opacity-100 transition">
+                               class="font-semibold hover:text-(--main-fg-color) hover:underline transition">
                                {{$socials->email}}
                             </a>
                         </div>
                     </div>
 
-                    <p class="mb-6">
+                    <p class="mb-4 leading-relaxed text-(--main-fg-color) max-w-2xl">
                         I am an Automation and Full Stack developer. I specialize in building web scrapers,
-                        reverse engineering api's and building web apps in Django and Laravel. If you want something done
-                        you can contact me on upwork.
+                        reverse engineering APIs and building web apps in Django and Laravel. If you want something done
+                        you can contact me on Upwork.
                     </p>
-                    {{--<p class="pb-6">--}}
-                    <p>
+
+                    <p class="leading-relaxed text-(--main-fg-color-muted) max-w-2xl">
                         In my free time I like working on embedded systems and graphics programming. I am familiar with
-                        opengl, threejs and unreal engine.
+                        OpenGL, Three.js and Unreal Engine.
                     </p>
-                    <nav></nav>
                 </div>
             </div>
 
-            <div class="mt-6">
-                <!-- Header -->
-                <header class="mb-10">
-                    <h1 class="text-3xl font-semibold">Client Projects</h1>
-                    <p class="text-(--main-fg-color) mt-2">Selected work completed for clients on Upwork.</p>
+            {{-- Client Projects --}}
+            <div class="mb-16">
+                <header class="mb-8">
+                    <h2 class="text-2xl font-bold tracking-tight">Client Projects</h2>
+                    <p class="text-(--main-fg-color-muted) mt-1 text-sm">Selected work completed for clients on Upwork.</p>
                 </header>
-                <!-- Projects -->
-                <section class="space-y-6">
-                    <!-- Project -->
+
+                <section class="space-y-4">
                     @foreach ($freelance_projects as $project)
-                        <article class="border border-neutral-800 rounded-lg p-5 hover:border-neutral-600 transition">
-                            <h2 class="text-lg font-medium">{{$project->title}}</h2>
-                            <p class="text-(--main-fg-color) mt-1">
+                        <article class="border border-(--main-border-color) rounded-lg px-6 py-5 hover:border-(--main-border-hover) transition">
+                            <h3 class="text-base font-bold">{{$project->title}}</h3>
+                            <p class="text-(--main-fg-color) mt-2 leading-relaxed text-sm">
                                 {{$project->description}}
                             </p>
-                            <div class="mt-2 text-sm text-(--main-fg-color)">{{$project->technologies}}</div>
+                            <div class="mt-3 text-xs text-(--main-fg-color-muted) font-semibold tracking-wide">{{$project->technologies}}</div>
                         </article>
                     @endforeach
                 </section>
             </div>
 
-            <div class="mt-6">
-                <!-- Header -->
-                <header class="mb-10">
-                    <h1 class="text-3xl font-semibold">Personal Projects</h1>
-                    <p class="text-(--main-fg-color) mt-2">Personal Projects built by me.</p>
+            {{-- Personal Projects --}}
+            <div class="mb-16">
+                <header class="mb-8">
+                    <h2 class="text-2xl font-bold tracking-tight">Personal Projects</h2>
+                    <p class="text-(--main-fg-color-muted) mt-1 text-sm">Personal projects built by me.</p>
                 </header>
-                <!-- Projects -->
-                <section class="space-y-6">
-                    <!-- Project -->
+
+                <section class="space-y-4">
                     @foreach ($personal_projects as $project)
-                        <article class="border border-neutral-800 rounded-lg p-5 hover:border-neutral-600 transition">
-                            <h2 class="text-lg font-medium">{{$project->title}}</h2>
-                            <p class="text-(--main-fg-color) mt-1">
+                        <article class="border border-(--main-border-color) rounded-lg px-6 py-5 hover:border-(--main-border-hover) transition">
+                            <h3 class="text-base font-bold">{{$project->title}}</h3>
+                            <p class="text-(--main-fg-color) mt-2 leading-relaxed text-sm">
                                 {{$project->description}}
                             </p>
-                            <div class="mt-2 text-sm text-(--main-fg-color)">{{$project->technologies}}</div>
+                            <div class="mt-3 text-xs text-(--main-fg-color-muted) font-semibold tracking-wide">{{$project->technologies}}</div>
                         </article>
                     @endforeach
                 </section>
             </div>
+
         </main>
     </body>
 </html>
